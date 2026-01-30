@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johannes Oosten - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f4;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        
+        nav a:hover {
+            color: #1e5a9e;
+        }
+        
+        nav a.active {
+            color: #1e5a9e;
+        }
+        
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 6rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Hero Section */
+        #home {
+            text-align: center;
+            background-image: url('title-waves-v2.png');
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 15vh;
+        }
+        
+        #home h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #1e5a9e 0%, #2b7ac7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            z-index: 1;
+        }
+        
+        #home p {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 2rem;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #888;
+        }
+        
+        /* About Section */
+        #about {
+            padding: 6rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .about-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2.5rem;
+        }
+        
+        .about-content p {
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .experience-item h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-item .role {
+            color: #1e5a9e;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-item .date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Projects Section */
+        #projects {
+            padding: 4rem 2rem;
+            min-height: auto;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        
+        .project-content {
+            padding: 2rem;
+        }
+        
+        .project-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .project-content p {
+            color: #666;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: #f0f4f8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #1e5a9e;
+            font-weight: 500;
+            border: 1px solid #d0e3f3;
+        }
+        
+        /* Contact Section */
+        #contact {
+            text-align: center;
+        }
+        
+        #contact h2 {
+            margin-bottom: 1rem;
+        }
+        
+        #contact p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-links a {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #1e5a9e 0%, #2b7ac7 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .contact-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            #home h1 {
+                font-size: 2.5rem;
+            }
+            
+            #home p {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 4rem 1rem 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        /* Project Detail Pages */
+        .project-detail {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            overflow-y: auto;
+            z-index: 2000;
+        }
+        
+        .project-detail.active {
+            display: block;
+        }
+        
+        .project-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #1e5a9e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-5px);
+        }
+        
+        .project-detail h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1e5a9e 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-detail-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #1e5a9e 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 6rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+        }
+        
+        .project-detail section {
+            min-height: auto;
+            padding: 2rem 0;
+            display: block;
+        }
+        
+        .project-detail h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .project-detail h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+            color: #1e5a9e;
+        }
+        
+        .project-detail p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .project-detail ul {
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.8;
+        }
+        
+        .project-detail ul li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .tech-specs {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .tech-specs h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-specs ul {
+            margin-left: 0;
+            list-style: none;
+        }
+        
+        .tech-specs li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .tech-specs li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #1e5a9e;
+        }
+        
+        /* Project Images */
+        .project-image-container {
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        
+        .project-image-container img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 0.75rem;
+        }
+        
+        .project-image-container.side-by-side {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+        
+        .project-image-container.side-by-side .image-wrapper {
+            text-align: center;
+        }
+        
+        .project-image-container.side-by-side img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .image-caption {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .project-image-container img {
+                max-width: 100%;
+            }
+            
+            .project-image-container.side-by-side {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div id="main-content">
+        <!-- Hero Section -->
+        <section id="home">
+            <h1>Johannes Oosten</h1>
+            <p>Project Engineer</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>With over 6 years of professional experience in naval engineering, I have developed extensive expertise in managing the maintenance and lifecycle of complex systems and components under mission driven pressure while leading cross-functional teams of engineers, customers, and technicians to deliver critical projects.</p>
+               
+                <p>At my core, I'm a maker. I like to create things and learn about about why things work the way they do. Since my first project a decade ago of building a quad-copter in my senior year of highschool, I've built surfboards, a pizza oven, a 6 foot long RC blimp, this website, a custom PCB and much more. Through this I've gained a unique hands on skillset that lets me take ideas from concept to creation. I built this website to have a place to show off to the world the things I'm working on so please check out the project section to see some of my projects from this past year, it's been deep dive into the world of electronics and programming!</p>
+
+                <p>Outside of the engineering world, you can find me reading fantasy (Currently making my way through Malazan Book of the Fallen series, can't recommend it enough), or at the beach surfing and playing volleyball with my friends.</p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Curtiss Wright Fleet Solutions</h3>
+                <div class="role">Project Engineer</div>
+                <div class="date">August 2024 - Present</div>
+                <p>As the sole engineer supporting an OEM repair facility with 36 Technicians, I provide technical expertise across every department. I focus on identifying systemic problems, from product lifecycle management and obsolescence to facility automation, I commit to long-term solutions that make a real difference.</p>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Naval Base Point Loma</h3>
+                <div class="role">Senior Mechanical Engineer</div>
+                <div class="date">February 2022 - August 2024</div>
+                <p>In 2022 I transferred to the Naval Base in San Diego and quickly became the technical lead of an 8-person engineering team supporting a rotating pool of five nuclear-submarines. As a team we managed 30-50 repairs per docking cycle, with projects ranging from $1-2 million. What made the difference wasn't just knowing the technical requirements, it was being in the field with mechanics, understanding their challenges, and finding solutions that worked in practice, not just on paper.</p>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Portsmouth Naval Shipyard</h3>
+                <div class="role">Mechanical Engineer</div>
+                <div class="date">July 2019 - January 2022</div>
+                <p>After spending 1.5 years learning the fundamentals of submarine mechanical repair I was selected for a competitive 7-month Submarine DSRA, working tirelessly to ensure essential repairs could be made to the ship to return it to its mission. I supported each stage of the scheduled maintenance including removal, repair and reinstallation of numerous components and systems. Ultimately the DSRA was a success, completing 2 weeks ahead of schedule and on budget.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Hussey Seating Company</h3>
+                <div class="role">Drafter & Engineering Intern</div>
+                <div class="date">Summers of 2016 - 2018</div>
+                <p>As an Engineering student I was given the opportunity to be a CAD drafter during my breaks from college. This is where I first learned how to create professional technical drawings through understanding customer requirements and the capabilities of the technicians performing the installation of bleachers. To this day the skills I learned as a drafter have been an invaluable base in understanding the art of presenting complex technical information in its simplest form.</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <a href="#" class="project-card" onclick="showProject('project1'); return false;">
+                    <div class="project-image">
+                        <img src="4F5E4077-8B2F-4E4C-94C4-A1570653737E.PNG" alt="ESP32 Alarm Device">
+                    </div>
+                    <div class="project-content">
+                        <h3>ESP32 Alarm Device</h3>
+                        <p>Custom-built ESP32 alarm clock with mobile app control</p>
+                        <div class="project-tags">
+                            <span class="tag">ESP32</span>
+                            <span class="tag">PCB Design</span>
+                            <span class="tag">Mobile Dev</span>
+                            <span class="tag">BLE & WiFi</span>
+                            <span class="tag">3D Printing</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- Project 2 -->
+                <a href="#" class="project-card" onclick="showProject('project2'); return false;">
+                    <div class="project-image">
+                        <img src="frother-wall-mount.png" alt="Electronic Frother">
+                    </div>
+                    <div class="project-content">
+                        <h3>Electronic Frother</h3>
+                        <p>Custom-built high-powered milk frother with ergonomic design and splash protection</p>
+                        <div class="project-tags">
+                            <span class="tag">Electronics</span>
+                            <span class="tag">Product Design</span>
+                            <span class="tag">3D CAD Design</span>
+                            <span class="tag">3D Printing</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- Project 3 -->
+                <a href="#" class="project-card" onclick="showProject('project3'); return false;">
+                    <div class="project-image">
+                        <img src="mechanical-chime-clock.png" alt="Mechanical Chime Alarm Clock">
+                    </div>
+                    <div class="project-content">
+                        <h3>Mechanical Chime Alarm Clock</h3>
+                        <p>ESP32-powered alarm clock with tuning fork chime and mobile app control for a gentle wake-up experience</p>
+                        <div class="project-tags">
+                            <span class="tag">ESP32</span>
+                            <span class="tag">Electronics</span>
+                            <span class="tag">Mobile App</span>
+                            <span class="tag">WiFi Connectivety</span>
+                            <span class="tag">3D CAD Design</span>
+                            <span class="tag">3D Printing</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- Add more projects by copying the structure above -->
+                <!-- Project 2 Template (uncomment and fill in when ready)
+                <a href="#" class="project-card" onclick="showProject('project2'); return false;">
+                    <div class="project-image">
+                        <div style="font-size: 4rem; color: #1e5a9e;">🚀</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Name</h3>
+                        <p>Brief description of your project and its key features.</p>
+                        <div class="project-tags">
+                            <span class="tag">Technology</span>
+                            <span class="tag">Stack</span>
+                        </div>
+                    </div>
+                </a>
+                -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to new opportunities and collaborations!</p>
+            <div class="contact-links">
+                <a href="mailto:oostenjohan@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/johannes-oosten-561a62157/" target="_blank">LinkedIn</a>
+                <a href="Johannes Oosten Resume.pdf" target="_blank">Resume</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Project Detail Pages -->
+    <div class="project-detail" id="project1">
+        <div class="project-detail-content">
+            <a href="#" class="back-button" onclick="showMain(); return false;">← Back to Projects</a>
+            
+            <h1>ESP32 Alarm Device with Companion App</h1>
+            <div class="project-tags">
+                <span class="tag">ESP32</span>
+                <span class="tag">PCB Design</span>
+                <span class="tag">Mobile Development</span>
+                <span class="tag">Bluetooth Low Energy & WiFi</span>
+                <span class="tag">3D Printing</span>
+                <span class="tag">Expo/React Native</span>
+            </div>
+            
+            <div class="tech-specs">
+                <h3>Technical Specifications</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <h4 style="color: #1e5a9e; margin-bottom: 0.5rem;">Hardware</h4>
+                        <ul>
+                            <li><strong>Microcontroller:</strong> ESP32-C3-MINI-1-N4</li>
+                            <li><strong>Power System:</strong> 3.7V Li-Ion battery with USB-C charging</li>
+                            <li><strong>Battery Life:</strong> 3 months (deep sleep mode)</li>
+                            <li><strong>User Interface:</strong> Mechanical switch, LED indicator, speaker</li>
+                            <li><strong>Connectivity:</strong> WiFi, Bluetooth Low Energy 5.0</li>
+                            <li><strong>Enclosure:</strong> Custom 3D-printed PLA housing</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #1e5a9e; margin-bottom: 0.5rem;">Software</h4>
+                        <ul>
+                            <li><strong>Mobile Platforms:</strong> iOS and Android via Expo</li>
+                            <li><strong>Communication:</strong> Bluetooth Low Energy</li>
+                            <li><strong>Development Tools:</strong> VS Code, Figma</li>
+                            <li><strong>Prototyping:</strong> Android Studio (Kotlin)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <section>
+                <h2>Project Overview</h2>
+                <p>This device works in conjunction with a custom iOS app that allows the user to set an alarm on their phone with various settings. The device connects through Bluetooth Low Energy (BLE) to the user's phone and saves the alarm time. The device is connected to wifi to obtain current NPT time and emits an alarm when the current time matches the set alarm time. The device is controlled using a custom built PCB with an integrated USB-C charging circuit powered by a 3.7V Li-Po battery, boasting 3 months of battery life with the use of the ESP32s deep sleep capabilities.</p>
+            </section>
+            
+            <section>
+                <h2>The Problem</h2>
+                <p>Right out of college, I began working for the military as a civilian. My new life as an engineer started at 6 AM, and I was wholly unprepared for this new schedule. To make sure I woke up on time, I started a habit of setting my alarm on my phone and leaving it across the room, forcing myself to physically get up to turn it off. This worked great until I installed Bluetooth-controlled lights in my bedroom and realized I wanted my phone at my bedside to control the lights, but still wanted an alarm across the room to maintain my morning routine.</p>
+                
+                <p>Rather than purchase a separate alarm clock, I decided to commit to learning the world of electronics and programming by building an ESP32-based device with an accompanying mobile app. This project would solve my annoyance while providing valuable experience in hardware design, AI use, and mobile app development. Over the course of 9 months of weekend work, this project evolved from a simple concept into a fully functional device that expanded my engineering capabilities far beyond my mechanical engineering background.</p>
+            </section>
+            
+            <section>
+                <h2>Technical Development</h2>
+                
+                <h3>Hardware Design and Iteration</h3>
+                <p>The initial prototype utilized an ESP32 development board coupled with an external voltage regulator IC. This approach quickly revealed significant limitations: the development board's footprint was unnecessarily large for the required functionality, and the voltage regulator generated excessive heat while producing electrical noise that substantially reduced battery efficiency.</p>
+                
+                <p>I transitioned to designing a custom PCB centered around the ESP32-C3-MINI-1-N4 microcontroller. This chip provided the essential WiFi and Bluetooth Low Energy capabilities while allowing for a significantly reduced form factor. The custom PCB design incorporated:</p>
+                
+                <ul>
+                    <li>Integrated battery charging circuit with USB-C connectivity</li>
+                    <li>3.7V Li-Ion battery support with power management</li>
+                    <li>Optimized component layout minimizing the device footprint to essential I/O: one speaker connection, one LED indicator, and two mechanical tactile switch</li>
+                    <li>Deep sleep implementation achieving 3-month battery life on a single charge</li>
+                </ul>
+                
+                <div class="project-image-container">
+                    <img src="pcb_schematic.PNG" alt="PCB schematic design">
+                    <div class="image-caption">Complete PCB schematic showing ESP32, power management, and I/O connections</div>
+                </div>
+                
+                <div class="project-image-container">
+                    <img src="PCB_LAYOUT_2D.JPG" alt="PCB 2D layout">
+                    <div class="image-caption">PCB layout optimized for compact form factor and minimal electromagnetic interference</div>
+                </div>
+                
+                <div class="project-image-container">
+                    <img src="PCB_LAYOUT_3D.JPG" alt="PCB 3D rendering">
+                    <div class="image-caption">3D rendering of the custom PCB with component placement visualization</div>
+                </div>
+                
+                <p>The mechanical enclosure went through multiple design iterations in CAD before 3D printing. The final design houses all components in a compact form factor while maintaining accessibility for the USB-C charging port and providing satisfying tactile feedback through a mechanical keyboard-style switch. The LED provides visual confirmation of user interaction and device status.</p>
+                
+                 <div class="project-image-container">
+                    <img src="IMG_0697.jpg" alt="First prototype enclosure">
+                    <div class="image-caption">Early prototype enclosure design - testing form factor and button placement</div>
+                </div>
+
+                <h3>Software Development and AI Integration</h3>
+                <p>As a mechanical engineer developing my first mobile application, I leveraged AI as a development partner throughout the software creation process. This required developing proficiency in prompt engineering—learning to provide comprehensive context, clear objectives, and maintaining a collaborative dialogue with AI tools. Each development session involved detailed requirement specifications and iterative refinement, transforming AI from a basic tool into an effective programming collaborator.</p>
+                
+                <p>The development process began with a proof-of-concept Android application built in Kotlin, chosen for Android's more accessible development environment. This prototype validated the communication architecture: the ESP32 functioning as a BLE client while the mobile app operated as the server. After confirming successful bidirectional communication, I proceeded with cross-platform development.</p>
+                
+                <div class="project-image-container">
+                    <img src="IMG_0773.jpg" alt="Kotlin prototype app">
+                    <div class="image-caption">First functional Android app prototype built in Kotlin - proof of concept for BLE communication</div>
+                </div>
+                
+                <p>The original design was intended to trigger an alarm from the phone, however I ran into a number of iOS restrictions. iOS kills background apps in order to save on battery, it can send notifications but it cannot perform operations such as an alarm while idle, this would also restrict the ability of the bluetooth connection. If the app is not open and active it will not connect to designated bluetooth devices. iOS also highly restricts the usage of the phones alarm system as Apple intends its users to use the native alarm app. There are ways around these restrictions but the path is extensive and complicated and I decided it would be unlikely my coding abilities would be sufficient.</p>
+                
+                <p>I pivoted and designed the app to immedietly send the alarm information to the device and allow the device to make the alarm. This circumvents the restriction on bluetooth and still allows the user to set an alarm using their phone will in bed, and still forcing the user to get out of bed to press the button to stop the alarm. The initial design concepts were storyboarded in Figma and recreated in Expo</p>
+
+                <div class="project-image-container">
+                    <img src="Figma_Story_Board.JPG" alt="Figma app design storyboard">
+                    <div class="image-caption">Figma storyboard mapping out user flows and interface design before development</div>
+                </div>
+
+                <div class="project-image-container">
+                    <img src="IMG_0957" alt="Completed iOS App">
+                    <div class="image-caption">Completed iOS App allowing for BLE connectivety to the device and alarm settings</div>
+                </div>          
+
+                <p>The production application utilized:</p>
+                <ul>
+                    <li>Figma for UI/UX design and storyboarding</li>
+                    <li>Visual Studio Code with Expo framework for cross-platform development</li>
+                    <li>Bluetooth Low Energy for device communication</li>
+                    <li>Real-time configuration updates pushed to the device</li>
+                </ul>
+                
+            <section>
+                <h2>Project Impact</h2>
+                <p>While the end product is a glorified alarm clock, the journey provided invaluable experience. The project demystified previously opaque technologies—PCB design, AI, and mobile app development all became practical tools rather than theoretical concepts. Working with AI as a development partner required developing new communication and problem-solving strategies that have proven valuable across other technical challenges and my everyday life.</p>
+                
+                <p>This project directly influenced my approach to automation at my current facility. Leveraging the confidence gained from this independent project, I successfully proposed and implemented a pump test loop automation system using PID control. This system allows technicians to input desired flow rates, with the PID controller automatically modulating valve actuators to achieve and maintain target values.</p>
+                
+                <p>The alarm device represents the first of many hardware projects. Each minor annoyance now presents a potential project, with the knowledge that something simple has an entire world of complexity behind it.</p>
+            </section>
+            
+            <section>
+                <h2>Key Learnings</h2>
+                <ul>
+                    <li><strong>PCB Design:</strong> Transitioned from using development boards to designing custom PCBs, understanding component selection, power management, and signal integrity</li>
+                    <li><strong>Mobile Development:</strong> Built first mobile application from scratch, learning cross-platform development with Expo and React Native</li>
+                    <li><strong>AI Collaboration:</strong> Developed effective prompt engineering skills to leverage AI as a programming partner</li>
+                    <li><strong>System Architecture:</strong> Learned to navigate platform restrictions and design resilient systems that work within constraints</li>
+                    <li><strong>Full-Stack Integration:</strong> Gained experience connecting hardware, and mobile applications into a cohesive product</li>
+                </ul>
+                
+                <div class="project-image-container">
+                    <img src="4F5E4077-8B2F-4E4C-94C4-A1570653737E.PNG" alt="Final ESP32 alarm device">
+                    <div class="image-caption">The finished product - compact, functional, and solving a real everyday problem</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+     <!-- Project Detail Pages -->
+    <div class="project-detail" id="project2">
+        <div class="project-detail-content">
+            <a href="#" class="back-button" onclick="showMain(); return false;">← Back to Projects</a>
+            
+            <h1>Electronic Frother</h1>
+            <div class="project-tags">
+                <span class="tag">Electronics</span>
+                <span class="tag">Product Design</span>
+                <span class="tag">3D CAD Design</span>
+                <span class="tag">3D Printing</span>
+            </div>
+            
+            <div class="tech-specs">
+                <h3>Technical Specifications</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <h4 style="color: #1e5a9e; margin-bottom: 0.5rem;">Hardware</h4>
+                        <ul>
+                            <li><strong>Motor:</strong> 7K RPM 3V DC Motor</li>
+                            <li><strong>Power System:</strong> 3.7V Li-Po battery with TP-4056 charging circuit</li>
+                            <li><strong>Shaft:</strong> 4" stainless steel rod, 2mm diameter</li>
+                            <li><strong>Bearing System:</strong> Ball bearing for reduced friction</li>
+                            <li><strong>Enclosure:</strong> Custom 3D-printed PLA housing</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #1e5a9e; margin-bottom: 0.5rem;">Design Features</h4>
+                        <ul>
+                            <li><strong>Ergonomics:</strong> Palm-sized form factor</li>
+                            <li><strong>Coupling Alignment:</strong> Custom crescent shim for motor face to support coupling alignment</li>
+                            <li><strong>Mounting:</strong> Magnetic Wall-mount design for easy storage</li>
+                            <li><strong>Battery Life:</strong> 10 hours continuous operation</li>
+                            <li><strong>Rechargeable Battery</strong> Integrated TP-4056 charging circuit</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <section>
+                <h2>Project Overview</h2>
+                <p>This custom high powered electronic milk frother provides the ability to spin at 7K RPM, while having an ergonomic design for comfortable handheld use with internal dampening material to reduce vibration to the user. The frother boasts a continuous life of 10 hours, with an integrated USB-C charging circuit to allow for an easy recharge.</p>
+            </section>
+            
+            <section>
+                <h2>The Problem</h2>
+                <p>My girlfriend and I purchased a $15 milk frother from Amazon to froth milk, stir coffee, and blend protein shakes. What we got was a wet noodle spinner. If you were patient it could stir some coffee. What I really wanted was something that you would need two hands to hold onto and a splash guard so you wouldn't lose half your beverage onto the table. And so I got working on a custom built frother.</p>
+            </section>
+            
+            <section>
+                <h2>Technical Development</h2>
+                <p>A frother is a relatively simple device. All it needs electronically is a motor, a battery, and a button that will allow the user to operate the motor on and off. With those as my core design constraints I was able to identify a small 7K RPM 3V motor and an accompanying 3.7V LiPo battery that would provide exactly the kind of power I was looking for while also being rechargeable through the simple addition of a TP-4056 charging circuit.</p>
+                
+                <p>I utilized a 4" long stainless steel rod for rigidity, matching the diameter of the motor shaft so a shaft coupling could be used, and a ball bearing that would add a connection point to the enclosure while reducing friction over the use of a bushing.</p>
+                
+                <p>With the addition of some small passive electrical components like a capacitor across the battery to reduce power fluctuation, I was ready to start prototyping and came up with the first design.</p>
+                
+                <div class="project-image-container">
+                    <img src="initial-concepts.png" alt="Initial frother enclosure concepts">
+                    <div class="image-caption">Early enclosure design iterations exploring form factor and component layout</div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Design Improvements and Challenges</h2>
+                <p>Over the course of 6 iterative versions I was able to dramatically reduce the size of the enclosure and improve user interaction by designing the enclosure to fit in the palm of a hand. There was one problem however that I kept running into throughout the device iterations. Because I utilize a rigid coupling to connect the shaft to the motor, as soon as the screws were tightened on the coupling, the shaft would lock up and the frother would be unable to spin.</p>
+                
+                <div class="project-image-container">
+                    <img src="first-prototype.png" alt="First functional prototype">
+                    <div class="image-caption">First functional prototype with working electronics - the starting point for refinement</div>
+                </div>
+                
+                <p>My first improvement was to implement double sided servo tape that uses a 1.6mm foam that allows for a slight amount of play in the motor as well as provides a dampening effect that reduces the vibration of the motor through the enclosure, improving the way it feels in a user's hand.</p>
+                
+                <p>The shaft was then able to rotate but it still was restricted from the misalignment. To permanently solve the misalignment I designed a crescent shim for the motor face that allowed for gradual elevation of the motor face so that I could manually adjust the alignment. With the shim installed the alignment was fixed, and the last piece of the puzzle was designing a mount using the outer profile of the enclosure so it would sit nicely alongside the rest of the coffee set up for easy use.</p>
+                
+                <div class="project-image-container">
+                    <img src="final-version.png" alt="Final frother version internals">
+                    <div class="image-caption">Final design showcasing optimized internal layout, motor alignment solution, and component integration</div>
+                </div>
+                
+                <p>Now we have a frother capable of mixing your Sunday eggs, and the immense satisfaction with every use of having built my own tool.</p>
+            </section>
+            
+            <section>
+                <h2>Key Learnings</h2>
+                <ul>
+                    <li><strong>Iterative Design:</strong> Six design revisions taught me the value of testing assumptions early and often—what seems perfect in CAD often reveals issues in real-world use</li>
+                    <li><strong>Engineering Constraints:</strong> Learning to work with mechanical limitations like shaft misalignment pushed me to develop creative solutions like the crescent shim system</li>
+                    <li><strong>User-Centered Design:</strong> Reducing the enclosure size to fit comfortably in the palm while maintaining structural integrity required balancing ergonomics with functionality</li>
+                    <li><strong>Problem-Solving Approach:</strong> Breaking down complex issues (vibration, alignment, ergonomics) into manageable sub-problems made the project achievable</li>
+                    <li><strong>Practical Electronics:</strong> Understanding the relationship between motor specifications, power requirements, and battery selection builds intuition for future projects</li>
+                </ul>
+                
+                <div class="project-image-container">
+                    <img src="frother-wall-mount.png" alt="Final frother wall-mounted in kitchen">
+                    <div class="image-caption">The completed frother in its natural habitat - magnetic wall-mount keeps it accessible and organized</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Project 3: Mechanical Chime Alarm Clock -->
+    <div class="project-detail" id="project3">
+        <div class="project-detail-content">
+            <a href="#" class="back-button" onclick="showMain(); return false;">← Back to Projects</a>
+            
+            <h1>Mechanical Chime Alarm Clock</h1>
+            <div class="project-tags">
+                <span class="tag">ESP32</span>
+                <span class="tag">Electronics</span>
+                <span class="tag">Mobile App Connectivity & WiFi</span>
+                <span class="tag">3D CAD Design</span>
+                <span class="tag">3D Printing</span>
+            </div>
+            
+            <div class="tech-specs">
+                <h3>Technical Specifications</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <h4 style="color: #1e5a9e; margin-bottom: 0.5rem;">Hardware</h4>
+                        <ul>
+                            <li><strong>Microcontroller:</strong> ESP32</li>
+                            <li><strong>Chime:</strong> 512Hz tuning fork</li>
+                            <li><strong>Actuator:</strong> Solenoid with MOSFET driver</li>
+                            <li><strong>Power System:</strong> 3.7V Li-Po battery with integrated charging circuit</li>
+                            <li><strong>Enclosure:</strong> Custom 3D-printed PLA open-space design</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #1e5a9e; margin-bottom: 0.5rem;">Software & Connectivity</h4>
+                        <ul>
+                            <li><strong>Connectivity:</strong> WiFi for time synchronization</li>
+                            <li><strong>Control:</strong> Mobile app connected via cloud server</li>
+                            <li><strong>Features:</strong> Alarm time, status, cadence, repeatability</li>
+                            <li><strong>Wake Pattern:</strong> Gradual Chime with subtle increase in cadence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <section>
+                <h2>Project Overview</h2>
+                <p>This custom built mechanical chime alarm clock utilizes a tuning fork and solenoid striking mechanism to create a gentle morning wakeup through gradual reduction in intervals of the chime. The alarm clock is powered by ESP32 connected to a cloud server that allows the user to connect via an app and control the alarm time, status, cadence, and repeatability.</p>
+            </section>
+            
+            <section>
+                <h2>The Problem</h2>
+                <p>In an attempt to keep my partner's and my phones out of the bedroom at night, I bought a simple alarm clock that we could use to wake up in the mornings. What we awoke to was akin to a nuclear reactor meltdown alarm. On top of this, having the time displayed on our night table made it that much harder to go back to sleep after realizing there were only two hours left before work.</p>
+                
+                <p>While thinking on a solution, I was inspired by the Nunu Alarm clock in its use of a mechanical chime to create a gentle, gradual wake-up. Knowing I wanted to eliminate the display allowed me to focus the design around the chime and create a unique open-spaced enclosure around a 512Hz tuning fork as the chime.</p>
+            </section>
+            
+            <section>
+                <h2>Technical Development</h2>
+                <p>To ring the chime, a mechanical movement would be needed along with accompanying electronics to power it, signal it to strike, and to allow for monitoring of the current time and alarm time. An ESP32 microcontroller is the perfect centerpiece for all of these functions, allowing for WiFi connection to monitor exact time and connection to a mobile app that would monitor alarm time and status through a cloud server.</p>
+                
+                <p>The ESP32 reads the settings from the third-party phone app and triggers the program when the current time matches the alarm time. The chime is struck by using a MOSFET gate to activate a solenoid for 25ms, just enough time to create a strike force against the chime but not too long that it reaches its max travel length and dampens the chime. A MOSFET is required as the solenoid's required current exceeds the capabilities of the ESP32's output, so a dedicated 3.7V LiPo battery with an integrated USB-C charging port is required for dedicated power.</p>
+            </section>
+            
+            <section>
+                <h2>Design Improvements and Challenges</h2>
+                <p>The biggest challenge was my initial choice of relays to trigger the solenoid. When I completed the initial prototype and began testing the alarm it failed to resonate when the chime was struck. I noticed that the solenoid was staying in the "ON" position for too long and dampening the chime. I reduced the signal in the code but it continued to fail, ultimately leading me on a goose chase to attempt to secure connection points between the enclosure components and the chime to the enclosure to minimize play.</p>
+                
+                <div class="project-image-container">
+                    <img src="prototype.png" alt="First mechanical chime prototype with relay">
+                    <div class="image-caption">Initial prototype using relay-based switching - functional but limited by 50ms minimum cycle time</div>
+                </div>
+                
+                <p>Ultimately none of it fixed the problem, and while re-evaluating the solenoid signal times I noticed that if it was 10ms, it continued to stick in the "ON" position. I reviewed the relay data sheet, and found that the minimum cycle time was 50ms. To reduce electronic footprint and improve the overall layout I swapped to a MOSFET that is ideal for lower power scenarios such as mine. As the MOSFET has no mechanical components it reduces the minimum cycle time to 1ms, allowing for the solenoid to activate with just enough speed that it strikes the chime and recoils immediately.</p>
+            </section>
+            
+            <section>
+                <h2>Key Learnings</h2>
+                <ul>
+                    <li><strong>Component Selection:</strong> Understanding the critical difference between relays and MOSFETs—mechanical vs. solid-state switching and their impact on timing precision</li>
+                    <li><strong>Reading Datasheets:</strong> The importance of thoroughly reviewing component specifications before implementation, particularly minimum cycle times for switching components</li>
+                    <li><strong>Root Cause Analysis:</strong> Learning to step back from assumed solutions (securing connections) and revisit fundamental component choices when troubleshooting</li>
+                    <li><strong>User Experience Design:</strong> Deliberately removing features (time display) to solve behavioral problems, demonstrating that good design sometimes means thoughtful subtraction</li>
+                    <li><strong>System Integration:</strong> Successfully coordinating hardware (ESP32, solenoid, chime), cloud infrastructure, and mobile app into a cohesive product</li>
+                </ul>
+                
+                <div class="project-image-container">
+                    <img src="mechanical-chime-clock.png" alt="Final mechanical chime alarm clock">
+                    <div class="image-caption">The finished alarm clock - minimalist design focused on the essential: a gentle, gradual wake-up chime</div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- Add more project detail pages by copying the structure above -->
+    <!-- Project 2 Detail Template (uncomment when ready)
+    <div class="project-detail" id="project2">
+        <div class="project-detail-content">
+            <a href="#" class="back-button" onclick="showMain(); return false;">← Back to Projects</a>
+            <h1>Second Project Name</h1>
+            [Add sections similar to project1]
+        </div>
+    </div>
+    -->
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scrolling with JavaScript fallback
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    // Use scrollIntoView for smooth scrolling
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active state
+                    document.querySelectorAll('.nav-link').forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Update active navigation item on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        function showProject(projectId) {
+            document.getElementById('main-content').classList.add('hidden');
+            document.getElementById('main-nav').style.display = 'none';
+            document.getElementById(projectId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        
+        function showMain() {
+            document.getElementById('main-content').classList.remove('hidden');
+            document.getElementById('main-nav').style.display = 'block';
+            const details = document.querySelectorAll('.project-detail');
+            details.forEach(detail => {
+                detail.classList.remove('active');
+            });
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
