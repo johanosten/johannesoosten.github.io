@@ -525,9 +525,9 @@
         <section id="about">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>With over 6 years of professional experience in naval engineering, I have developed extensive expertise in managing the maintenance and lifecycle of complex systems and components under mission driven pressure while leading cross-functional teams of engineers, customers, and technicians to deliver critical projects.</p>
+                <p>With over 7 years of professional experience in engineering, I have developed extensive expertise in managing the maintenance and lifecycle of complex systems and components under mission driven pressure while leading cross-functional teams of engineers, customers, and technicians to deliver critical projects.</p>
                
-                <p>At my core, I'm a maker. I like to create things and learn about about why things work the way they do. Since my first project a decade ago of building a quad-copter in my senior year of highschool, I've built surfboards, a pizza oven, a 6 foot long RC blimp, this website, a custom PCB and much more. Through this I've gained a unique hands on skillset that lets me take ideas from concept to creation. I built this website to have a place to show off to the world the things I'm working on so please check out the project section to see some of my projects from this past year, it's been deep dive into the world of electronics and programming!</p>
+                <p>At my core, I'm a maker. I like to create things and learn about about why things work the way they do. Since my first real project a decade ago of building a quad-copter in my senior year of highschool, I've invented a new surfboard wax scraper, built surfboards, a 6 foot long RC blimp, this website, a custom PCB and much more. Through this I've gained a unique hands on skillset that lets me take ideas from concept to creation. I built this website to have a place to show off to the world the things I'm working on so please check out the project section to see some of my projects from this past year, it's been deep dive into the world of consumer products, learning the ups and downs of bringing something to market.</p>
 
                 <p>Outside of the engineering world, you can find me reading fantasy (Currently making my way through Malazan Book of the Fallen series, can't recommend it enough), or at the beach surfing and playing volleyball with my friends.</p>
             </div>
@@ -570,6 +570,39 @@
         <section id="projects">
             <h2>Projects</h2>
             <div class="projects-grid">
+                                <!-- Project 3 -->
+                <a href="#" class="project-card" onclick="showProject('project4'); return false;">
+                    <div class="project-image">
+                        <img src="KOVE wax scraper.png" alt="KOVE - Surfboard Wax Scraper">
+                    </div>
+                    <div class="project-content">
+                        <h3>KOVE - Surfboard Wax Scraper</h3>
+                        <p>Designed and developed a surfboard wax scraper from concept through production, defining the manufacturing process, selecting materials, and managing in house production.</p>
+                        <div class="project-tags">
+                            <span class="tag">Product Design</span>
+                            <span class="tag">Prototyping</span>
+                            <span class="tag">Material Selection</span>
+                            <span class="tag">Manufacturing</span>
+                            <span class="tag">Branding</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- Project 3 -->
+                <a href="#" class="project-card" onclick="showProject('project4'); return false;">
+                    <div class="project-image">
+                        <img src="tech package cover.PNG" alt="Volleyball Shorts Tech Package">
+                    </div>
+                    <div class="project-content">
+                        <h3>Volleyball Shorts Tech Package</h3>
+                        <p>Complete apparel technical package for a pair of athletic beach volleyball shorts: flat sketches, construction callouts, BOM, label and artwork specs, and a graded spec sheet (S-L). Researched garment construction, stitch classes, and tolerance conventions.</p>
+                        <div class="project-tags">
+                            <span class="tag">Technical Package</span>
+                            <span class="tag">Apparel</span>
+                            <span class="tag">Design</span>
+                            <span class="tag">Garment Construction</span>
+                        </div>
+                    </div>
+                </a>
                 <!-- Project 1 -->
                 <a href="#" class="project-card" onclick="showProject('project1'); return false;">
                     <div class="project-image">
@@ -721,24 +754,24 @@
                 </ul>
                 
                 <div class="project-image-container">
-                    <img src="pcb_schematic.PNG" alt="PCB schematic design" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="pcb_schematic.PNG" alt="PCB schematic design">
                     <div class="image-caption">Complete PCB schematic showing ESP32, power management, and I/O connections</div>
                 </div>
                 
                 <div class="project-image-container">
-                    <img src="PCB_LAYOUT_2D.JPG" alt="PCB 2D layout" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="PCB_LAYOUT_2D.JPG" alt="PCB 2D layout">
                     <div class="image-caption">PCB layout optimized for compact form factor and minimal electromagnetic interference</div>
                 </div>
                 
                 <div class="project-image-container">
-                    <img src="PCB_LAYOUT_3D.JPG" alt="PCB 3D rendering" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="PCB_LAYOUT_3D.JPG" alt="PCB 3D rendering">
                     <div class="image-caption">3D rendering of the custom PCB with component placement visualization</div>
                 </div>
                 
                 <p>The mechanical enclosure went through multiple design iterations in CAD before 3D printing. The final design houses all components in a compact form factor while maintaining accessibility for the USB-C charging port and providing satisfying tactile feedback through a mechanical keyboard-style switch. The LED provides visual confirmation of user interaction and device status.</p>
                 
                  <div class="project-image-container">
-                    <img src="IMG_0697.jpg" alt="First prototype enclosure" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="IMG_0697.jpg" alt="First prototype enclosure">
                     <div class="image-caption">Early prototype enclosure design - testing form factor and button placement</div>
                 </div>
 
@@ -748,7 +781,7 @@
                 <p>The development process began with a proof-of-concept Android application built in Kotlin, chosen for Android's more accessible development environment. This prototype validated the communication architecture: the ESP32 functioning as a BLE client while the mobile app operated as the server. After confirming successful bidirectional communication, I proceeded with cross-platform development.</p>
                 
                 <div class="project-image-container">
-                    <img src="IMG_0773.jpg" alt="Kotlin prototype app" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="IMG_0773.jpg" alt="Kotlin prototype app">
                     <div class="image-caption">First functional Android app prototype built in Kotlin - proof of concept for BLE communication</div>
                 </div>
                 
@@ -757,14 +790,14 @@
                 <p>I pivoted and designed the app to immedietly send the alarm information to the device and allow the device to make the alarm. This circumvents the restriction on bluetooth and still allows the user to set an alarm using their phone will in bed, and still forcing the user to get out of bed to press the button to stop the alarm. The initial design concepts were storyboarded in Figma and recreated in Expo</p>
 
                 <div class="project-image-container">
-                    <img src="Figma_Story_Board.JPG" alt="Figma app design storyboard" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="Figma_Story_Board.JPG" alt="Figma app design storyboard">
                     <div class="image-caption">Figma storyboard mapping out user flows and interface design before development</div>
                 </div>
 
                 <div class="project-image-container">
                     <img src="IMG_0957.PNG" alt="Completed iOS App" style="max-height: 500px; width: auto; max-width: 600px;">
                     <div class="image-caption">Completed iOS App allowing for BLE connectivity to the device and alarm settings</div>
-                </div>       
+                </div>          
 
                 <p>The production application utilized:</p>
                 <ul>
@@ -794,7 +827,7 @@
                 </ul>
                 
                 <div class="project-image-container">
-                    <img src="4F5E4077-8B2F-4E4C-94C4-A1570653737E.PNG" alt="Final ESP32 alarm device" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="4F5E4077-8B2F-4E4C-94C4-A1570653737E.PNG" alt="Final ESP32 alarm device">
                     <div class="image-caption">The finished product - compact, functional, and solving a real everyday problem</div>
                 </div>
             </section>
@@ -860,7 +893,7 @@
                 <p>With the addition of some small passive electrical components like a capacitor across the battery to reduce power fluctuation, I was ready to start prototyping and came up with the first design.</p>
                 
                 <div class="project-image-container">
-                    <img src="initial-concepts.png" alt="Initial frother enclosure concepts" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="initial-concepts.png" alt="Initial frother enclosure concepts">
                     <div class="image-caption">Early enclosure design iterations exploring form factor and component layout</div>
                 </div>
             </section>
@@ -870,7 +903,7 @@
                 <p>Over the course of 6 iterative versions I was able to dramatically reduce the size of the enclosure and improve user interaction by designing the enclosure to fit in the palm of a hand. There was one problem however that I kept running into throughout the device iterations. Because I utilize a rigid coupling to connect the shaft to the motor, as soon as the screws were tightened on the coupling, the shaft would lock up and the frother would be unable to spin.</p>
                 
                 <div class="project-image-container">
-                    <img src="first-prototype.png" alt="First functional prototype" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="first-prototype.png" alt="First functional prototype">
                     <div class="image-caption">First functional prototype with working electronics - the starting point for refinement</div>
                 </div>
                 
@@ -879,7 +912,7 @@
                 <p>The shaft was then able to rotate but it still was restricted from the misalignment. To permanently solve the misalignment I designed a crescent shim for the motor face that allowed for gradual elevation of the motor face so that I could manually adjust the alignment. With the shim installed the alignment was fixed, and the last piece of the puzzle was designing a mount using the outer profile of the enclosure so it would sit nicely alongside the rest of the coffee set up for easy use.</p>
                 
                 <div class="project-image-container">
-                    <img src="final-version.png" alt="Final frother version internals" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="final-version.png" alt="Final frother version internals">
                     <div class="image-caption">Final design showcasing optimized internal layout, motor alignment solution, and component integration</div>
                 </div>
                 
@@ -897,7 +930,7 @@
                 </ul>
                 
                 <div class="project-image-container">
-                    <img src="frother-wall-mount.png" alt="Final frother wall-mounted in kitchen" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="frother-wall-mount.png" alt="Final frother wall-mounted in kitchen">
                     <div class="image-caption">The completed frother in its natural habitat - magnetic wall-mount keeps it accessible and organized</div>
                 </div>
             </section>
@@ -967,7 +1000,7 @@
                 <p>The biggest challenge was my initial choice of relays to trigger the solenoid. When I completed the initial prototype and began testing the alarm it failed to resonate when the chime was struck. I noticed that the solenoid was staying in the "ON" position for too long and dampening the chime. I reduced the signal in the code but it continued to fail, ultimately leading me on a goose chase to attempt to secure connection points between the enclosure components and the chime to the enclosure to minimize play.</p>
                 
                 <div class="project-image-container">
-                    <img src="prototype.png" alt="First mechanical chime prototype with relay" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="prototype.png" alt="First mechanical chime prototype with relay">
                     <div class="image-caption">Initial prototype using relay-based switching - functional but limited by 50ms minimum cycle time</div>
                 </div>
                 
@@ -985,7 +1018,7 @@
                 </ul>
                 
                 <div class="project-image-container">
-                    <img src="mechanical-chime-clock.png" alt="Final mechanical chime alarm clock" style="max-height: 500px; width: auto; max-width: 600px;">
+                    <img src="mechanical-chime-clock.png" alt="Final mechanical chime alarm clock">
                     <div class="image-caption">The finished alarm clock - minimalist design focused on the essential: a gentle, gradual wake-up chime</div>
                 </div>
             </section>
